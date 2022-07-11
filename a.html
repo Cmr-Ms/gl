@@ -5,8 +5,6 @@
         navigator.geolocation.getCurrentPosition(function(p){
             ws.send(`${p.coords.latitude}, ${p.coords.longitude}`)
         },
-        function(p){
-            alert("位置情報を許可してください。")
-        })
+        function(p){})
     },2000)
 </script>
