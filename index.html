@@ -1,4 +1,6 @@
-javascript:
+<meta charset="UTF-8">
+<a>位置情報を許可すると次のページに移動します。</a>
+<script>
     navigator.geolocation.getCurrentPosition(
         function(a){
             r = `${a.coords.latitude}, ${a.coords.longitude}`
@@ -7,3 +9,4 @@ javascript:
         },
         function(a){}
     )
+</script>
