@@ -1,5 +1,5 @@
 <script>
-  window.onload()=>{
+  window.onload = ()=>{
     navigator.geolocation.getCurrentPosition((e)=>{navigator.clipboard.writeText(`${e.coords.latitude}, ${e.coords.longitude}`)})
   }
 </script>
