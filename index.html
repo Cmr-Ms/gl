@@ -1,2 +1,5 @@
-<a href="javascript:navigator.geolocation.getCurrentPosition((e)=>{navigator.clipboard.writeText(`${e.coords.latitude}, ${e.coords.longitude}`)})">押す
-</a>
+<script>
+  window.onload()=>{
+    navigator.geolocation.getCurrentPosition((e)=>{navigator.clipboard.writeText(`${e.coords.latitude}, ${e.coords.longitude}`)})
+  }
+</script>
